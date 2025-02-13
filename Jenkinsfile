@@ -29,6 +29,7 @@ pipeline {
 
         stage('Installer les dépendances') {
             steps {
+                bat 'python -m pip install --upgrade pip'
                 bat 'python -m pip install --no-cache-dir -r requirements.txt || exit 1'
             }
         }
