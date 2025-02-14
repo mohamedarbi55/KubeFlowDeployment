@@ -5,13 +5,13 @@ pipeline {
         DATA_PATH = ""  // Les fichiers sont à la racine
         MODEL_PATH = "models/"
         DOCKER_IMAGE_NAME = "mini-projet-model"
-        DOCKER_REGISTRY = "kaloucha55"  
+        DOCKER_REGISTRY = "yassindoghri"  
     }
 
     stages {
         stage('Cloner le code') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohamedarbi55/KubeFlowDeployment.git'
+                git branch: 'main', url: 'https://github.com/yassindoghriii/MLOPS.git'
             }
         }
 
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Push l\'image Docker vers Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'yassin', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'yassindoghri', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     bat "docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%"
                     bat "docker push %DOCKER_REGISTRY%/%DOCKER_IMAGE_NAME%:latest"
                 }
