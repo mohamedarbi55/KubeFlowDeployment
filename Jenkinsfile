@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Cloner le code') {
             steps {
-                git branch: 'main', url: 'https://github.com/yassindoghriii/MLOPS.git'
+                git branch: 'main', url: 'https://github.com/mohamedarbi55/KubeFlowDeployment.git'
             }
         }
 
@@ -29,8 +29,8 @@ pipeline {
 
         stage('Installer les dépendances') {
             steps {
-                bat 'C:\\Python311\\python.exe -m pip install --upgrade pip'
-                bat 'C:\\Python311\\python.exe -m pip install --no-cache-dir -r requirements.txt || exit 1'
+                bat 'python -m pip install --upgrade pip'
+                bat 'python -m pip install --no-cache-dir -r requirements.txt || exit 1'
             }
         }
 
